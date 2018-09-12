@@ -1,7 +1,7 @@
 FROM golang:alpine
 
-# Get C++ protobuf library requirements.
-RUN apk update && apk add make git build-base curl autoconf automake libtool
+# Get library requirements.
+RUN apk update && apk add make git build-base curl autoconf automake libtool docker
 
 # Get C++ protobuf library.
 RUN git clone https://github.com/google/protobuf -b v3.6.1 --depth 1
