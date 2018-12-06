@@ -10,7 +10,7 @@ RUN apk update && apk add make git build-base curl autoconf automake libtool doc
                                                                                  && chmod +x /usr/local/bin/dind
 
 # Get C++ protobuf library.
-RUN git clone https://github.com/google/protobuf -b v3.6.1 --depth 1
+RUN git clone https://github.com/google/protobuf -b v3.6.1.2 --depth 1
 
 # Install C++ protobuf library.
 RUN cd protobuf && ./autogen.sh && ./configure && make && make install && cd .. && rm -rf protobuf
