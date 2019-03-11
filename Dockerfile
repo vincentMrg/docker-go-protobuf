@@ -1,4 +1,4 @@
-FROM golang:1.11-alpine
+FROM golang:1.12-alpine
 
 MAINTAINER Vincent Marguerie "vmarguerie@gmail.com"
 
@@ -17,6 +17,8 @@ RUN cd protobuf && ./autogen.sh && ./configure && make && make install && cd .. 
 
 # Install golang protobuf generator.
 RUN go get -u github.com/golang/protobuf/protoc-gen-go
+
+RUN cd $GOPATH/src/github.com/golang/protobuf/protoc-gen-go && git checkout v1.2.0 && go install
 
 
 VOLUME /var/lib/docker
